@@ -1,0 +1,144 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+@font-face{
+    src:url(font/OpenSans-Bold.ttf);
+    font-family:opensans-bold;
+}
+@font-face{
+    src:url(font/OpenSans-Regular.ttf);
+    font-family:opensans;
+}
+@font-face{
+    src:url(font/OpenSans-Light.ttf);
+    font-family:opensans-thin;
+}
+.opensans-bold{
+    font-family: opensans-bold;
+}
+.opensans{
+    font-family: opensans;
+}
+.opensans-light{
+    font-family: opensans-light;
+}
+.container-fluid,.container-fluid > .row{
+    width: 100%;
+    height: auto;
+    float: left;
+    clear: both;
+}
+.container-fluid > .row{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.row > .col{
+    flex: 1;
+}
+.col > .col{
+    flex: 1;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.inline-flex{
+    display: inline-flex;
+}
+.flex-start{
+    justify-content: flex-start;
+    text-align: left;
+}
+.flex-end{
+    justify-content: flex-end;
+    text-align: end;
+}
+.flex-center{
+    justify-content: center;
+    text-align: center;
+}
+
+.all-center{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.color-black{
+    color: #000;
+}
+.color-white{
+    color: #fff;
+}
+.color-green{
+    color: #1fbba6;
+}
+.fz-15{
+    font-size: 15px;
+}
+.bg-green{
+    background-color: #1fbba6;
+}
+.btn{
+    background-color: #1fbba6;
+    color: #fff;
+    border: 1px solid #1fbba6;
+    border-radius: 30px;
+    padding: 0px 30px;
+    width:auto;
+    height: 40px;
+    transition: all 0.3s linear;
+    -webkit-transition:all 0.3s linear;
+    -moz-transition:all 0.3s linear;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+.pd-0-100{
+    padding: 0px 100px;
+}
+.pd-20-100{
+    padding: 20px 100px;
+}
+.pd-30-100{
+    padding: 30px 100px;
+}
+.mgb-30{
+    margin-bottom: 30px;
+}
+.search-box{
+    border: none;
+    border-bottom: 2px solid #1fbba6;
+    border-radius: 0px;
+    padding: 10px 0px;
+}
+.search-box:focus{
+    outline: none;
+}
+.movies-container > .col{
+    flex: none;
+    flex-basis: 19%;
+    margin-right: 1%;
+    
+}
+.movies-container > .col img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.movie-title,.relese-container{
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.movie-title{
+    padding-left: 10px;
+}
+.relese-container{
+    padding-right: 10px;
+    text-align: end;
+}

@@ -1,6 +1,6 @@
-@media only screen and (max-width:900px)
+@media only screen and (max-width:900px) and (min-width:401px)
 {
-    .movies-container,.movies-library-container{
+    .movies-list-container,.movies-library-container{
         padding: 0px 30px;
         justify-content: space-around;
     }
@@ -25,7 +25,40 @@
     .search-container input{
         width: 100%;
     }
-    .movies-container > .col,.movies-library-container > .col{
+    .movies-list-container > .col,.movies-library-container > .col{
         flex-basis: 45%;
+    }
+}
+@media only screen and (max-width:400px)
+{
+    .movies-list-container,.movies-library-container{
+        padding: 0px 20px;
+        justify-content: space-around;
+    }
+    .search-container,.moview-button-container,.row.header{
+        padding: 20px;
+    }
+    .moview-button-container > .col
+    {
+        flex-basis: 100%;
+    }
+    .moview-button-container > div:nth-child(2)
+    {
+       justify-content: flex-start;
+        text-align: left;
+        padding: 20px 0px;
+    }
+    .btn{
+        padding: 0px 20px;
+        height: 30px;
+    }
+    .moview-button-container{
+        padding-bottom: 0px;
+    }
+    .search-container input{
+        width: 100%;
+    }
+    .movies-list-container > .col,.movies-library-container > .col{
+        flex-basis: 95%;
     }
 }

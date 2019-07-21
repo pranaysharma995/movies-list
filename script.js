@@ -1,7 +1,51 @@
 
 window.onload=function()
 {
-           var search=document.getElementsByClassName("search-box")[0];  
+    var add_to_library=document.getElementsByClassName("add-to-library");
+    var delete_from_library=document.getElementsByClassName("delete-from-library");
+    for(let i=0;i<add_to_library.length;i++)
+        {
+            add_to_library[i].addEventListener("click",() =>
+                                              {
+                add_to_library[i].classList.remove("active");
+                delete_from_library[i].classList.add("active");
+            })
+            delete_from_library[i].addEventListener("click",() =>{
+                 add_to_library[i].classList.add("active");
+                delete_from_library[i].classList.remove("active");
+            })
+        }
+    
+    
+    
+    var library_array=[];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   var search_toggle=document.getElementsByClassName("search-toggle")[0];
+    var movies_library=document.getElementsByClassName("movies-library-container")[0];
+    var movies_container=document.getElementsByClassName("movies-container")[0];
+    search_toggle.addEventListener("click",() =>
+                                  {
+        movies_library.style.display="none";
+        movies_container.style.display="flex";
+    })
+    var library_toggle=document.getElementsByClassName("library-toggle")[0];
+    library_toggle.addEventListener("click",function()
+                                   {
+         movies_library.style.display="flex";
+        movies_container.style.display="none";
+    })
+    
+    
+    var search=document.getElementsByClassName("search-box")[0];  
     var filmArray=document.getElementsByClassName("movies-box");
     
     

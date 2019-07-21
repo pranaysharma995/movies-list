@@ -5,6 +5,7 @@
 Fasoos Assignment
 </title>
 <link href="style.css" rel="stylesheet" />
+    <link href="mobilestyle.css" rel="stylesheet" />
 </head>
 <body>
 <div class="container-fluid">
@@ -21,8 +22,10 @@ Fasoos Assignment
     <!-- opening of moview-button-container -->
     <div class="row moview-button-container pd-20-100">
         <div class="col flex-start">
-            <button type="button" class="btn inline-flex all-center opensans">Library</button>
-            <button type="button" class="btn inline-flex all-center opensans">Search & Add</button>
+            <!-- library toggle button  to open library container -->
+            <button type="button" class="btn inline-flex all-center opensans library-toggle">Library</button>
+            <!-- search-toggle button to open search-container -->
+            <button type="button" class="btn inline-flex all-center opensans search-toggle">Search & Add</button>
         </div>
         <div class="col flex-end flex">
         <select name="sort-list" class="sort-list">
@@ -38,6 +41,10 @@ Fasoos Assignment
     <input type="text" class="search-box color-green opensans" placeholder="Search Movies" />
     </div>
     <!-- closing of search-container -->
+    <!-- opening of movies-library-container -->
+    <div class="row movies-library-container pd-0-100">
+    </div>
+    <!-- closing of movies-library-container -->
     <!-- opening of moview-container -->
     <div class="row movies-container pd-0-100">
     </div>

@@ -4,6 +4,7 @@ window.onload=function()
     var add_to_library=document.getElementsByClassName("add-to-library");
     var delete_from_library=document.getElementsByClassName("delete-from-library");
     var movies_library=document.getElementsByClassName("movies-library-container")[0];
+    var movies_list=document.getElementsByClassName("movies-container")[0];
     for(let i=0;i<add_to_library.length;i++)
         {
             add_to_library[i].addEventListener("click",(e) =>
@@ -26,6 +27,11 @@ window.onload=function()
     function delete_movies_from_library(movie,library)
     {
         library.removeChild(movie);
+        add_movies_to_list(movie,movies_list);
+    }
+    function add_movies_to_list(movie,list)
+    {
+        list.appendChild(movie);
     }
     
     var library_array=[];

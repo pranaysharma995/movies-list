@@ -3,20 +3,30 @@ window.onload=function()
 {
     var add_to_library=document.getElementsByClassName("add-to-library");
     var delete_from_library=document.getElementsByClassName("delete-from-library");
+    var movies_library=document.getElementsByClassName("movies-library-container")[0];
     for(let i=0;i<add_to_library.length;i++)
         {
-            add_to_library[i].addEventListener("click",() =>
+            add_to_library[i].addEventListener("click",(e) =>
                                               {
-                add_to_library[i].classList.remove("active");
-                delete_from_library[i].classList.add("active");
+                let movies_block=e.target.parentElement.parentElement;
+                add_movies_to_library(movies_block,movies_library);
             })
-            delete_from_library[i].addEventListener("click",() =>{
-                 add_to_library[i].classList.add("active");
-                delete_from_library[i].classList.remove("active");
+            delete_from_library[i].addEventListener("click",(e) =>{
+                 let movies_block=e.target.parentElement.parentElement;
+                delete_movies_from_library(movies_block,movies_library);
             })
         }
     
-    
+    function add_movies_to_library(movie,library)
+    {
+                
+        library.appendChild(movie);
+        
+    }
+    function delete_movies_from_library(movie,library)
+    {
+        library.removeChild(movie);
+    }
     
     var library_array=[];
     

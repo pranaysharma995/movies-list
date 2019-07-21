@@ -23,9 +23,7 @@
                         let movie_title=data[i].Title.split("(");
                         let release_data=movie_title[1].split(")");
                         node.innerHTML="<img src='"+data[i].Poster+"' Alt='"+movie_title[0]+"' /><div class='movie-title'><p class='title-text opensans color-white fz-15'>"+movie_title[0]+"</p></div><div class='relese-container'><p class='relese-date opensans color-white fz-15'>"+release_data[0]+"</p><button type='button' class='add-to-library active'>Add</button><button type='button' class='delete-from-library'>Delete</button></div>";
-                        var cln = node.cloneNode(true);
                     movies_container.appendChild(node);
-                    library_container.appendChild(cln);
                     }
             }
         else{

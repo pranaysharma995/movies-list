@@ -1,6 +1,6 @@
 
     console.log("Document loaded");
-    var movies_container=document.querySelector(".movies-container");
+    var movies_list_container=document.querySelector(".movies-list-container");
      var library_container=document.querySelector(".movies-library-container");
     
     //set up new http request 
@@ -23,7 +23,7 @@
                         let movie_title=data[i].Title.split("(");
                         let release_data=movie_title[1].split(")");
                         node.innerHTML="<img src='"+data[i].Poster+"' Alt='"+movie_title[0]+"' /><div class='movie-title'><p class='title-text opensans color-white fz-15'>"+movie_title[0]+"</p></div><div class='relese-container'><p class='relese-date opensans color-white fz-15'>"+release_data[0]+"</p><button type='button' class='add-to-library active'>Add</button><button type='button' class='delete-from-library'>Delete</button></div>";
-                    movies_container.appendChild(node);
+                    movies_list_container.appendChild(node);
                     }
             }
         else{

@@ -1,6 +1,6 @@
 @media only screen and (max-width:900px)
 {
-    .movies-container{
+    .movies-container,.movies-library-container{
         padding: 0px 30px;
         justify-content: space-around;
     }
@@ -25,7 +25,7 @@
     .search-container input{
         width: 100%;
     }
-    .movies-container > .col{
+    .movies-container > .col,.movies-library-container > .col{
         flex-basis: 45%;
     }
 }

@@ -3,18 +3,23 @@ window.onload=function()
 {
     var add_to_library=document.getElementsByClassName("add-to-library");
     var delete_from_library=document.getElementsByClassName("delete-from-library");
-    var movies_library=document.getElementsByClassName("movies-library-container")[0];
-    var movies_list=document.getElementsByClassName("movies-container")[0];
+    var movies_library_container=document.getElementsByClassName("movies-library-container")[0];
+    var movies_list_container=document.getElementsByClassName("movies-list-container")[0];
+    var sort_list=document.getElementsByClassName("sort-list")[0];
+    var show_movies_library_container=document.getElementsByClassName("show-movies-library")[0];
+    var show_movies_list_container=document.getElementsByClassName("show-movies-list")[0];
+        var search=document.getElementsByClassName("search-box")[0];  
+    var filmArray=document.getElementsByClassName("movies-box");
     for(let i=0;i<add_to_library.length;i++)
         {
             add_to_library[i].addEventListener("click",(e) =>
                                               {
                 let movies_block=e.target.parentElement.parentElement;
-                add_movies_to_library(movies_block,movies_library);
+                add_movies_to_library(movies_block,movies_library_container);
             })
             delete_from_library[i].addEventListener("click",(e) =>{
                  let movies_block=e.target.parentElement.parentElement;
-                delete_movies_from_library(movies_block,movies_library);
+                delete_movies_from_library(movies_block,movies_library_container);
             })
         }
     
@@ -27,14 +32,13 @@ window.onload=function()
     function delete_movies_from_library(movie,library)
     {
         library.removeChild(movie);
-        add_movies_to_list(movie,movies_list);
+        add_movies_to_list(movie,movies_list_container);
     }
     function add_movies_to_list(movie,list)
     {
         list.appendChild(movie);
     }
     
-    var library_array=[];
     
     
     
@@ -45,24 +49,21 @@ window.onload=function()
     
     
     
-   var search_toggle=document.getElementsByClassName("search-toggle")[0];
-    var movies_library=document.getElementsByClassName("movies-library-container")[0];
-    var movies_container=document.getElementsByClassName("movies-container")[0];
-    search_toggle.addEventListener("click",() =>
+    show_movies_list_container.addEventListener("click",() =>
                                   {
-        movies_library.style.display="none";
-        movies_container.style.display="flex";
+        movies_library_container.style.display="none";
+        movies_list_container.style.display="flex";
+        sort_list.classList.add("in-list");
+        sort_list.classList.remove("in-library");
     })
-    var library_toggle=document.getElementsByClassName("library-toggle")[0];
-    library_toggle.addEventListener("click",function()
+    show_movies_library_container.addEventListener("click",function()
                                    {
-         movies_library.style.display="flex";
-        movies_container.style.display="none";
+         movies_library_container.style.display="flex";
+        movies_list_container.style.display="none";
+         sort_list.classList.remove("in-list");
+        sort_list.classList.add("in-library");
     })
     
-    
-    var search=document.getElementsByClassName("search-box")[0];  
-    var filmArray=document.getElementsByClassName("movies-box");
     
     
      search.addEventListener("keyup",function(e)
@@ -88,20 +89,19 @@ window.onload=function()
     
     
     
-    function sortByTitle()
+    function sortByTitleInList()
     {
         console.log("Sort by title");
         
         let list, i, switching, b, shouldSwitch;
-  list = document.getElementsByClassName("movies-box");
-    let parent=document.getElementsByClassName("movies-container")[0];
+  list = movies_list_container.getElementsByClassName("movies-box");
   switching = true;
   /* Make a loop that will continue until
   no switching has been done: */
   while (switching) {
     // Start by saying: no switching is done:
     switching = false;
-    b = document.getElementsByClassName("title-text");
+    b = movies_list_container.getElementsByClassName("title-text");
     // Loop through all list items:
     for (i = 0; i < (b.length - 1); i++) {
       // Start by saying there should be no switching:
@@ -118,26 +118,25 @@ window.onload=function()
     if (shouldSwitch) {
       /* If a switch has been marked, make the switch
       and mark the switch as done: */
-      parent.insertBefore(list[i + 1], list[i]);
+      movies_list_container.insertBefore(list[i + 1], list[i]);
       switching = true;
     }
   }
 }
 
-    function sortByYear()
+    function sortByYearInList()
     {
         console.log("Sort by year");
         
         let list, i, switching, b, shouldSwitch;
-  list = document.getElementsByClassName("movies-box");
-    let parent=document.getElementsByClassName("movies-container")[0];
+  list = movies_list_container.getElementsByClassName("movies-box");
   switching = true;
   /* Make a loop that will continue until
   no switching has been done: */
   while (switching) {
     // Start by saying: no switching is done:
     switching = false;
-    b = document.getElementsByClassName("relese-date");
+    b = movies_list_container.getElementsByClassName("relese-date");
     // Loop through all list items:
     for (i = 0; i < (b.length - 1); i++) {
       // Start by saying there should be no switching:
@@ -154,7 +153,79 @@ window.onload=function()
     if (shouldSwitch) {
       /* If a switch has been marked, make the switch
       and mark the switch as done: */
-      parent.insertBefore(list[i + 1], list[i]);
+      movies_list_container.insertBefore(list[i + 1], list[i]);
+      switching = true;
+    }
+  }
+    }
+    
+    function sortByTitleInLibrary()
+    {
+        console.log("Sort by title");
+        
+        let list, i, switching, b, shouldSwitch;
+  list = movies_library_container.getElementsByClassName("movies-box");
+  switching = true;
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    b = movies_library_container.getElementsByClassName("title-text");
+    // Loop through all list items:
+    for (i = 0; i < (b.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Check if the next item should
+      switch place with the current item: */
+      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+        /* If next item is alphabetically lower than current item,
+        mark as a switch and break the loop: */
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark the switch as done: */
+      //movies_list_container.insertBefore(list[i + 1], list[i]);
+      movies_library_container.insertBefore(list[i+1],list[i]);
+      switching = true;
+    }
+  }
+}
+
+    function sortByYearInLibrary()
+    {
+        console.log("Sort by year");
+        
+        let list, i, switching, b, shouldSwitch;
+  list = movies_library_container.getElementsByClassName("movies-box");
+  switching = true;
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    b = movies_library_container.getElementsByClassName("relese-date");
+    // Loop through all list items:
+    for (i = 0; i < (b.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Check if the next item should
+      switch place with the current item: */
+      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+        /* If next item is alphabetically lower than current item,
+        mark as a switch and break the loop: */
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark the switch as done: */
+      //movies_list_container.insertBefore(list[i + 1], list[i]);
+      movies_library_container.insertBefore(list[i+1],list[i]);
       switching = true;
     }
   }
@@ -163,13 +234,21 @@ window.onload=function()
     var sortList=document.getElementsByClassName("sort-list")[0];
     sortList.addEventListener("change",(e) => {
         let value=e.target.value;
-        if(value == "Movie title")
+        if(value == "Movie title" && e.target.classList.contains('in-list'))
             {
-                sortByTitle();
+                sortByTitleInList();
             }
-        if(value == "Year of relese")
+        if(value == "Year of relese" && e.target.classList.contains('in-list'))
             {
-                sortByYear();
+                sortByYearInList();
+            }
+         if(value == "Movie title" && e.target.classList.contains('in-library'))
+            {
+                sortByTitleInLibrary();
+            }
+        if(value == "Year of relese" && e.target.classList.contains('in-library'))
+            {
+                sortByYearInLibrary();
             }
     })
     

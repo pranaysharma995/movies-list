@@ -131,14 +131,14 @@ body{
 .search-box:focus{
     outline: none;
 }
-.movies-container > .col,.movies-library-container > .col{
+.movies-list-container > .col,.movies-library-container > .col{
     flex: none;
     flex-basis: 19%;
     margin-right: 1%;
     position: relative;
     
 }
-.movies-container > .col img,.movies-library-container > .col img{
+.movies-list-container > .col img,.movies-library-container > .col img{
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -169,7 +169,7 @@ body{
     font-size: 15px;
     border: 1px solid #1fbba6;
 }
-.movies-container .movies-box:hover  .add-to-library{
+.movies-list-container .movies-box:hover  .add-to-library{
     display: inline-block;
 }
 .movies-library-container .movies-box:hover  .delete-from-library{
